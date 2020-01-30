@@ -1,0 +1,523 @@
+body {
+  font-family: system, -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue, Helvetica, Lucida Grande, sans-serif;
+  font-size: 14px;
+}
+
+div, section, main {
+  border-color: rgb(221, 223, 226);
+}
+
+.error, .warn, .correct {
+  border: 1px solid rgb(221, 223, 226);
+  border-radius: 2px;
+  background-color: rgb(233, 235, 238);
+  clear: both;
+  padding: .5em;
+  margin: .5em 0 0;
+}
+
+.error {
+  color: darkred;
+}
+
+.warn {
+  color: coral;
+}
+
+.correct {
+  color: darkgreen;
+}
+
+.pill {
+  border-radius: 9999px;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: rgb(233, 235, 238);
+  height: 100vh;
+  display: flex;
+  flex-flow: row center;
+  padding: 1em;
+}
+
+#main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  border-radius: 5px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgb(221, 223, 226);
+  background-color: white;
+  display: flex;
+  flex-flow: row;
+}
+
+main > section {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+main > section > header, main > section > footer {
+  /*flex: 0 1 auto;*/
+  flex: none;
+  /*
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  */
+}
+
+main > section > section {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+main > section > * + *, .conversation + .conversation {
+  border-top: 1px solid rgb(221, 223, 226);
+}
+
+.loginpage, .resetpage {
+  margin: 1em;
+  overflow-y: auto;
+}
+
+.loginpage h2, .resetpage h2 {
+  margin-top: 0;
+}
+
+.logo + .login {
+  margin-top: 1em;
+}
+
+.login, .register, .reset {
+  display: inline-block;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 3px;
+  padding: 1em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#left header {
+  margin: 1em;
+}
+
+.logo {
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.conversations {
+  display: flex;
+  flex-flow: column nowrap; 
+}
+
+.conversation {
+  flex: none;
+  display: flex;
+  flex-flow: row;
+}
+
+.conversation-img {
+  margin: .5em;
+  margin-right: 0;
+  height: 49px;
+  width: 49px;
+  flex: none;
+  background-color: coral;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.conversation-info {
+  align-self: center;
+  flex: 1 1 auto;
+  margin: 1em;
+  /* important width in pixels */
+  width: 200px;
+}
+
+.conversation-name {
+  /*float: left;*/
+  font-size: larger;
+  white-space: nowrap;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversation-last-time {
+  float: right;
+  padding-left: .5em;
+  color: rgb(140, 140, 140);
+}
+.unread {
+  clear: both;
+  float: right;
+  margin-top: .5em;
+  padding: .2em .5em;
+  color: white;
+  background-color: red;
+  border-radius: 9999px;
+}
+
+.conversation-last-message {
+  color: rgb(100, 100, 100);
+  margin-top: .5em;
+  display: block;
+  /* important width in pixels */
+  /*width: 180px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversation-last-message .attachment > * {
+  display: none;
+}
+
+.conversation-last-message .attachment span {
+  display: inline-block;
+  margin-right: .5em;
+  float: left;
+}
+
+.conversation-last-message .attachment span::before {
+  content: '[';
+}
+
+.conversation-last-message .attachment span::after {
+  content: ']';
+}
+
+.conversation:hover {
+  cursor: pointer;
+  /*filter: alpha(opacity=70);*/ /* this gives clarity */
+  /*filter: brightness(90%);*/ /* this gives darkness */
+  background-color: #F5F5F5;
+}
+
+#left {
+  border-right: 1px solid rgb(221, 223, 226);
+}
+
+footer form {
+  background-color: rgb(239, 239, 239);
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: stretch;
+}
+footer form > * {
+  margin: .5em;
+  font-size: 14px;
+}
+footer form > * + * {
+  margin-left: 0;
+}
+
+footer input {
+  flex: 1 1 auto;
+  height: 3em;
+  box-sizing: border-box;
+  border: none;
+  padding: 0 1em;
+}
+
+footer [type=file] {
+  /* because accessibility should use */
+  /*position: absolute;
+  left: -99999rem;*/
+  display: none;
+}
+
+footer label {
+  font-size: 14px;
+  height: 3em;
+  width: 3em;
+  position: relative;
+}
+
+footer label svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer button, footer label {
+  flex: none;
+  border: none;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: coral;
+}
+
+footer button:hover, footer label:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+
+footer button:active, footer label:active {
+  background-color: #a00;
+}
+
+.loader {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  /*border: 16px solid #f3f3f3;*/
+  /*border-top: 16px solid #3498db; */
+  /*border-radius: 50%;*/
+  background-color: coral;
+  width: 2rem;
+  height: 2rem;
+  margin: .5rem;
+  animation: spin 10s linear infinite;
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+  /*z-index: -100;*/
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.messages {
+  background-color: rgb(229, 221, 214);
+  display: flex;
+  flex-flow: column;
+  padding-top: 1em;
+  /*padding-bottom: 1em;*/
+}
+
+.message {
+  flex: 0 1 auto;
+  margin: .25em .5em;
+  padding: 6px 7px 8px 9px;
+  max-width: 70%;
+  box-shadow: 0 1px .5px rgba(0,0,0,.13);
+  border-radius: 7.5px;
+  position: relative;
+  word-break: break-word;
+}
+
+.message .content {
+  white-space: pre-wrap;
+}
+
+.message.external {
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 0;
+  align-self: flex-start;
+}
+
+.message.own {
+  background-color: rgb(218, 248, 203);
+  align-self: flex-end;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+}
+
+.external + .own, .own + .external {
+  margin-top: 1em;
+}
+
+.external + .external, .own + .own {
+  margin-top: .05em;
+}
+
+.messages::after {
+  content: '';
+  padding-top: 1em;
+}
+
+.message.own .author, .message.own .name {
+  display: none;
+}
+
+.message .date {
+  font-size: smaller;
+  color: rgb(140, 140, 140);
+}
+
+/* read tick \2713 */
+
+.message .author {
+  color: coral;
+  display: inline-block;
+  margin-right: .4em;
+  margin-bottom: .4em;
+}
+
+.message .name {
+  font-size: smaller;
+  color: rgb(170, 170, 170);
+  display: inline-block;
+}
+
+.message .date {
+  padding-top: .3em;
+  float: right;
+}
+
+.message .attachment span {
+  display:  none;
+}
+
+.message .content .attachment {
+  text-align: center;
+  border-radius: 6px;
+  padding: 1em 0;
+  margin-bottom: .5em;
+}
+
+.message .content .attachment img {
+  /*max-width: 300px;*/
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.message .content .attachment button {
+  margin: 1em 1em;
+}
+
+.message.own .attachment {
+  background-color: #CFE9BA;
+}
+
+.message.external .attachment {
+  background-color: #F0F0F0;
+}
+
+.file-loaded {
+  background-color: green;
+}
+
+#right {
+  flex: 1 1 auto;
+}
+
+#right header {
+  display: flex;
+  flex-flow: row;
+}
+
+#right header > * {
+  align-self: center;
+}
+
+#right header, #right section {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.current-conversation-img {
+  flex: none;
+  margin: .5em;
+  margin-right: 0;
+  height: 40px;
+  width: 40px;
+  background-color: coral;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  align-self: center;
+  vertical-align: middle;
+}
+
+.current-conversation-img, .conversation-img {
+  position: relative;
+}
+
+.current-conversation-img svg, .conversation-img svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.current-conversation-info {
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 1em;
+}
+
+.current-conversation-name {
+  font-size: larger;
+}
+
+.current-conversation-participants {
+  color: rgb(100, 100, 100);
+  margin-top: .5em;
+  /*display: block;*/
+  /* important width in pixels */
+  /*width: 150px;*/
+  /*white-space: nowrap;*/
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
+}
+
+.current-conversation-participants svg {
+  transform: translateY(2px);
+}
+
+.buttons {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+}
+
+span.active, span.inactive {
+  display: inline-block;
+  padding: .3em;
+  margin: .2em;
+  border-radius: 3px;
+  border: 2px solid gray;
+}
+
+span.active:hover, span.inactive:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(100,100,100,0.75);
+}
+
+span.active:active, span.inactive:active {
+  box-shadow: inset 0px 0px 2px 0px rgba(100,100,100,0.75);
+}
+
+span.active {
+  background-color: rgb(173,255,47, .5);
+}
+
+span.inactive {
+  background-color: #ddd;
+  opacity: .50;
+}
+
+span.changing {
+  border-color: coral;
+}
+
+.friend {
+  border: 1px solid gray;
+  display: inline-block;
+  margin: .3em;
+  padding: .3em;
+  border-radius: 2px;
+}
+
+.friend:hover {
+  cursor: pointer;
+}
